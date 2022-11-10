@@ -13,22 +13,10 @@
      width: 100%
     }
 
-    #rectangle{
-        width:400px;
-        height:150px;
-        background-color: #ffffff;
-        border-radius: 25px;
-        position:absolute;
-        top:25%;
-        left:50%;
-        transform:translate(-50%,-50%);
-    }
-
-    #ans{
+    #pred{
         text-align: center;
         font-family: 'Times New Roman', Times, serif;
         font-size: 40px;
-        margin: 0 auto;
         padding: 3% 5%;
         padding-top: 15%;
         color: rgb(0, 10, 80);
@@ -36,8 +24,6 @@
 
 </style>
 <body>
-    <div id="rectangle">
-        <h1 id="ans">PREDICTION : {{num}}</h1>
-    </div>
+        <p id="pred">PREDICTION : {{num}}</p>
 </body>
 </html>
