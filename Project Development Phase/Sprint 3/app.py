@@ -9,13 +9,10 @@ from keras.preprocessing import image
 from flask import send_from_directory
 
 FOLDER = 'C:\Users\AKSHAYA\Desktop\ImageFiles'
-
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = FOLDER
 
 model = load_model("digit_classifier.h5")
-
 
 @app.route('/')
 def index():
