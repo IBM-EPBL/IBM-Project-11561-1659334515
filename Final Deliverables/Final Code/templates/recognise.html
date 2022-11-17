@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Digit Recognition</title>
+        <style>
+            body {
+              background-image: url('https://img.freepik.com/premium-vector/falling-colorful-messy-numbers-math-study-concept-with-flying-digits-fascinating-back-school-mathematics-banner-white-background-falling-numbers-vector-illustration_174187-2929.jpg?w=2000');
+              margin: 0;
+              font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+              height: 100%;
+              width: 100%;
+            }
+            h1 {
+                display: block;
+                font-size: 3.5em;
+                margin-top: 5.4em;
+                margin-bottom: 0em;
+                margin-left: 50%;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            
+            
+            .button {
+                border:#e5b9f3;
+                color: rgb(56, 1, 69);
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+
+            .button1 {
+                background-color: #b6e6f0;
+                margin-top: 5.4em;
+                margin-left: 56%;
+                margin-right: 0;
+                border: black;
+            } 
+            .button2 {
+                background-color: #b6e6f0;
+                margin-top: 5.5em;
+                margin-left: 55%;
+                margin-right: 0;
+                border: black;
+            } 
+        </style>
+        <script>
+            function view() {
+                frame.src=URL.createObjectURL(event.target.files[0]);
+            }
+            
+            $('#submit').click(function(){
+                $.ajax({
+                    url: 'app.py',
+                    type: 'POST',
+                    
+
+                })
+            })
+            
+            var input = document.getElementById('image');
+            var infoArea = document.getElementById('frame');
+
+            input.addEventListener('change', showFileName);
+
+            function showFileName(event) {
+                var input = event.srcElement;
+                var fileName = input.files[0].name;
+                infoArea.textContent = 'File name: ' + fileName;
+            }
+
+        </script>
+        <script src="https://kit.fontawesome.com/b3aed9cb07.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+        <script src="https://ajax.googleis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <h1 style = "color: rgb(2, 60, 0)">Digit Recognition
+        <br>
+        <br>
+        <form action="{{url_for('predict')}}" method="POST" enctype="multipart/form-data">
+            
+        <input id="image" type="file" name="image" accept="image/png, image/jpeg" onchange="view()"><br><br>
+        <img id="frame" type="submit" src="" width="100px" height="100px"/>
+        
+        <input type="submit" value="Recognise" class="button"/>
+        </h1>
+        </form>
+        
+        
+    </body>
+</html>
